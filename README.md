@@ -26,9 +26,9 @@ Privacy, Terms, and Contact are drafts. Replace them when final text and a publi
 
 ## GitHub Pages
 
-The workflow `.github/workflows/pages.yml` publishes the `site/` directory on every push to `main`.
+`.github/workflows/pages.yml` runs the site check on pull requests and does not deploy them. On a push to `main`, that same workflow runs the check, uploads the `site/` directory, and deploys it with GitHub Actions.
 
-In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. Publishing starts after that setting is saved and the workflow runs on `main`.
+In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. Publishing starts after that setting is saved and a push to `main` runs the workflow.
 
 Expected site URL:
 
@@ -42,7 +42,7 @@ Expected site URL:
 python3 scripts/check_site.py
 ```
 
-The same check runs in `.github/workflows/check.yml`.
+The Pages workflow runs this check once. Pull requests stop after the check. A push to `main` continues on to deploy `site/`.
 
 ## Fonts
 
