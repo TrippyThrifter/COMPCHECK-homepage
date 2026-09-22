@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trippythrifter.github.io/COMPCHECK-homepage/sitemap.xml
