@@ -1,5 +1,7 @@
 # Publish the static marketing site in /site with GitHub Pages.
 # No secrets, build services, or application infrastructure are used.
+# This is the only workflow that runs scripts/check_site.py.
+
 name: Deploy GitHub Pages
 
 on:
