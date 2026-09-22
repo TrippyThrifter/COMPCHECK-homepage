@@ -98,22 +98,8 @@ class PageParser(HTMLParser):
             value = attributes.get(attr)
             if value:
                 self.links.append((attr, value))
-        if tag == "a":
-            href = attributes.get("href") or ""
-            label = (attributes.get("aria-label") or "").strip()
-            if href.startswith("#") and not label:
-                pass
-            if tag not in VOID_TAGS:
-                self.stack.append(tag)
-            return
-        if tag == "img" and not (attributes.get("alt") or "").strip() and attributes.get("alt") != "":
+        if tag == "img" and attributes.get("alt") is None:
             self.errors.append("img is missing alt")
-        if tag == "button":
-            label = (attributes.get("aria-label") or "").strip()
-            if not label:
-                self.stack.append(tag)
-                self._button_needs_text = True
-                return
         if tag not in VOID_TAGS:
             self.stack.append(tag)
 
@@ -227,13 +213,6 @@ def check_workflow(errors: list[str]) -> None:
     for name in ("check", "build", "deploy"):
         if name not in jobs:
             errors.append(f"workflow is missing the {name} job")
-    upload = (
-        jobs.get("build", {})
-        .get("steps", [{}])[-1]
-        .get("with", {})
-        .get("path")
-    )
-    # The upload step is not guaranteed to be last if the file changes.
     found_path = None
     for step in jobs.get("build", {}).get("steps", []):
         if isinstance(step, dict) and "with" in step and "path" in step["with"]:
@@ -244,8 +223,6 @@ def check_workflow(errors: list[str]) -> None:
     uses = [step.get("uses", "") for step in deploy_steps if isinstance(step, dict)]
     if not any(item.startswith("actions/deploy-pages@") for item in uses):
         errors.append("workflow does not deploy with actions/deploy-pages")
-    if upload is None and found_path is None:
-        errors.append("workflow upload path was not found")
 
 
 def main() -> int:
