@@ -1,33 +1,30 @@
 (function () {
   var toggle = document.querySelector(".nav-toggle");
-  var nav = document.getElementById("site-nav");
-
-  if (!toggle || !nav) {
+  var menu = document.getElementById("site-menu");
+  if (!toggle || !menu) {
     return;
   }
 
-  var label = toggle.querySelector(".nav-toggle-label");
+  var label = toggle.querySelector(".nav-toggle-text");
+  var desktop = window.matchMedia("(min-width: 960px)");
 
-  function setOpen(open, returnFocus) {
-    var wasOpen = toggle.getAttribute("aria-expanded") === "true";
+  function setOpen(open) {
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    nav.classList.toggle("is-open", open);
+    menu.classList.toggle("is-open", open);
     if (label) {
       label.textContent = open ? "Close" : "Menu";
-    }
-    if (!open && wasOpen && returnFocus) {
-      toggle.focus();
     }
   }
 
   toggle.addEventListener("click", function () {
     var open = toggle.getAttribute("aria-expanded") === "true";
-    setOpen(!open, false);
+    setOpen(!open);
   });
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      setOpen(false, true);
+    if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
+      toggle.focus();
     }
   });
 
@@ -35,42 +32,26 @@
     if (toggle.getAttribute("aria-expanded") !== "true") {
       return;
     }
-    var target = event.target;
-    if (!target || typeof target.nodeType !== "number") {
-      return;
-    }
-    var element = target.nodeType === 1 ? target : target.parentElement;
-    if (!element) {
-      return;
-    }
-    if (nav.contains(element) || toggle.contains(element)) {
-      return;
-    }
-    setOpen(false, false);
-  });
-
-  nav.addEventListener("click", function (event) {
-    var target = event.target;
-    if (!target || typeof target.nodeType !== "number") {
-      return;
-    }
-    var element = target.nodeType === 1 ? target : target.parentElement;
-    if (element && element.closest("a")) {
-      setOpen(false, false);
+    if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+      setOpen(false);
     }
   });
 
-  var desktop = window.matchMedia("(min-width: 760px)");
+  menu.addEventListener("click", function (event) {
+    if (event.target.closest("a")) {
+      setOpen(false);
+    }
+  });
 
-  function closeIfDesktop() {
+  function closeOnDesktop() {
     if (desktop.matches) {
-      setOpen(false, false);
+      setOpen(false);
     }
   }
 
   if (typeof desktop.addEventListener === "function") {
-    desktop.addEventListener("change", closeIfDesktop);
+    desktop.addEventListener("change", closeOnDesktop);
   } else if (typeof desktop.addListener === "function") {
-    desktop.addListener(closeIfDesktop);
+    desktop.addListener(closeOnDesktop);
   }
 })();

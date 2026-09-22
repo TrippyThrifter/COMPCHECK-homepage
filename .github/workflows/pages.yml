@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Check static site
-        run: python3 tools/check_site.py
+        run: python3 scripts/check_site.py
 
   build:
     needs: check

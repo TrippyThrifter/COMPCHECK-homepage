@@ -4,81 +4,116 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy — CompCheck</title>
-  <meta name="description" content="Placeholder privacy notice for the CompCheck public marketing website. Final privacy text is not published yet.">
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#143f3b">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Placeholder privacy notice for the public CompCheck marketing website. Not a finished privacy policy.">
   <link rel="canonical" href="https://trippythrifter.github.io/COMPCHECK-homepage/privacy.html">
+  <meta name="theme-color" content="#f4f1ea">
   <meta property="og:title" content="Privacy — CompCheck">
-  <meta property="og:description" content="Placeholder privacy notice for the CompCheck public marketing website.">
+  <meta property="og:description" content="Placeholder privacy notice for the public CompCheck marketing website.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://trippythrifter.github.io/COMPCHECK-homepage/privacy.html">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
-  <script>document.documentElement.classList.add("js");</script>
+  <noscript>
+    <style>
+      .nav-toggle { display: none !important; }
+      .header-inner { flex-wrap: wrap; }
+      .site-nav {
+        display: flex !important;
+        position: static !important;
+        flex-direction: column;
+        flex-basis: 100%;
+        padding-bottom: 0.8rem;
+      }
+      @media (min-width: 960px) {
+        .site-nav {
+          flex-direction: row !important;
+          align-items: center;
+          flex-basis: auto;
+          margin-left: auto;
+          padding-bottom: 0;
+        }
+      }
+    </style>
+  </noscript>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="wrap header-inner">
       <a class="brand" href="index.html">
-        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-          <rect width="32" height="32" rx="8" fill="currentColor"/>
-          <path d="M8.2 16.6 13.1 21.4 23.8 10.2" fill="none" stroke="#f4f0e6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#0e5c59"/>
+          <path d="M8.5 16.4 13.3 21.2 23.5 10" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span>CompCheck</span>
+        <span class="brand-name">CompCheck</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
         <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="nav-toggle-label">Menu</span>
+        <span class="nav-toggle-text">Menu</span>
       </button>
-      <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <ul>
+      <nav id="site-menu" class="site-nav" aria-label="Primary">
+        <ul class="nav-links">
           <li><a href="index.html#product">Product</a></li>
           <li><a href="index.html#how-it-works">How it works</a></li>
-          <li><a href="index.html#who-its-for">Who it's for</a></li>
+          <li><a href="index.html#who-its-for">Who it’s for</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <a class="button button-primary" href="contact.html#request">Request access</a>
       </nav>
     </div>
   </header>
-  <main id="main">
-    <header class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Placeholder</p>
-        <h1>Privacy</h1>
-        <p>This page is a draft for the public marketing website. It is not a finished privacy policy.</p>
-      </div>
-    </header>
-    <div class="section">
-      <div class="container prose">
-        <p class="notice"><strong>Placeholder.</strong> Final privacy text is not available yet. Do not treat this page as a complete privacy policy. Replace it with reviewed language before relying on it.</p>
-        <h2>This website</h2>
-        <p>The CompCheck marketing website is a set of static pages about the product. You can read them without creating an account. These pages do not include a payment form, and they do not ask for a password.</p>
-        <h2>What this draft does not cover</h2>
-        <p>If you later use the CompCheck application, that product is separate from this marketing website. This placeholder does not describe application accounts, payments, or data stored by the product, because those details are not published here.</p>
-        <h2>Information these pages are built not to collect</h2>
-        <p>As published, this website does not include a form that sends information to a server for the marketing site. It also does not load third-party scripts or analytics tags.</p>
-        <p>If a contact form, analytics tool, or embedded service is added later, this page needs to be rewritten so it matches the site.</p>
-        <h2>Contact</h2>
-        <p>Questions about privacy for this website belong on the <a href="contact.html">contact page</a>. A public contact method is not listed there yet.</p>
-        <p>Drafted September 22, 2026. This date is not an effective date for a final policy.</p>
-      </div>
+
+  <main id="content" class="page-main">
+    <div class="wrap prose">
+      <h1>Privacy</h1>
+      <p class="notice" role="note"><strong>Placeholder.</strong> This is not a finished privacy policy, and it is not legal advice. Replace this page before relying on it.</p>
+      <p>This draft describes the public CompCheck marketing website only. It does not describe a separate product application.</p>
+
+      <h2>What this website collects</h2>
+      <p>These pages are static. The site does not include an account system, a contact form that stores messages, or an analytics tool. You do not sign in to read them.</p>
+      <p>The site is prepared for hosting on GitHub Pages. A host may keep ordinary technical logs, such as IP address, browser type, and the page requested, under that host’s own practices. GitHub’s privacy information applies to GitHub Pages hosting.</p>
+
+      <h2>Cookies</h2>
+      <p>This website does not set its own tracking cookies. It does not use advertising cookies or analytics cookies.</p>
+
+      <h2>What this page does not cover</h2>
+      <p>If you later use a CompCheck application, that product may handle information this marketing site never sees. Describe that handling in a policy written for the product. Do not treat this placeholder as that policy.</p>
+
+      <h2>Contact</h2>
+      <p>A public contact address is not published yet. See the <a href="contact.html">contact page</a>.</p>
+
+      <h2>Changes</h2>
+      <p>This placeholder can be replaced at any time. Draft added <time datetime="2026-09-22">September 22, 2026</time>.</p>
     </div>
   </main>
+
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="wrap footer-grid">
       <div>
-        <a class="footer-brand" href="index.html">
-          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-            <rect width="32" height="32" rx="8" fill="currentColor"/>
-            <path d="M8.2 16.6 13.1 21.4 23.8 10.2" fill="none" stroke="#f4f0e6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#0e5c59"/>
+            <path d="M8.5 16.4 13.3 21.2 23.5 10" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span>CompCheck</span>
+          <span class="brand-name">CompCheck</span>
         </a>
-        <p class="footer-tag">Pricing and comps research for online resellers.</p>
+        <p class="footer-blurb">Pricing and comps research for online resellers.</p>
       </div>
       <nav aria-label="Footer">
+        <h2 class="footer-heading">Explore</h2>
+        <ul>
+          <li><a href="index.html#product">Product</a></li>
+          <li><a href="index.html#how-it-works">How it works</a></li>
+          <li><a href="index.html#who-its-for">Who it’s for</a></li>
+          <li><a href="index.html#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal">
+        <h2 class="footer-heading">Legal</h2>
         <ul>
           <li><a href="privacy.html" aria-current="page">Privacy</a></li>
           <li><a href="terms.html">Terms</a></li>
@@ -86,8 +121,10 @@
         </ul>
       </nav>
     </div>
-    <div class="container">
-      <p class="footer-meta">© 2026 CompCheck. Public marketing site.</p>
+    <div class="wrap footer-base">
+      <p>© 2026 CompCheck</p>
+      <p>Privacy and Terms are placeholders until final text is published.</p>
+      <p><a href="https://github.com/TrippyThrifter/COMPCHECK-homepage">Website source on GitHub</a></p>
     </div>
   </footer>
   <script src="js/nav.js" defer></script>

@@ -1,47 +1,49 @@
-# CompCheck homepage
+# CompCheck
 
-Public marketing website for CompCheck, a reseller pricing and comps research tool.
+Public marketing website for CompCheck, a pricing and comps research tool for online resellers.
 
-This repository contains only that public site: static HTML, CSS, and JavaScript. It does not include the CompCheck application, accounts, payments, or private systems.
+This repository contains only the public site: static HTML, CSS, JavaScript, and assets. It does not include an application backend, credentials, or customer data.
 
 ## Preview locally
 
 From the repository root:
 
 ```bash
-python3 -m http.server 8080 --directory site
+python3 -m http.server 8080 -d site
 ```
 
-Open `http://127.0.0.1:8080/`.
+Then open `http://127.0.0.1:8080/`.
 
 ## Pages
 
-| File | Purpose |
-| --- | --- |
-| `site/index.html` | Homepage |
-| `site/privacy.html` | Privacy placeholder |
-| `site/terms.html` | Terms placeholder |
-| `site/contact.html` | Contact and access placeholder |
-| `site/404.html` | Not found |
+- `site/index.html` — homepage
+- `site/contact.html` — contact and access-request placeholder
+- `site/privacy.html` — privacy placeholder
+- `site/terms.html` — terms placeholder
+- `site/404.html` — missing-page message
 
-Privacy, terms, and contact are clearly marked placeholders. Replace them with reviewed text and a real public contact method before relying on them. Do not add credentials or private application links.
+Privacy, Terms, and Contact are drafts. Replace them when final text and a public contact method are ready. Do not invent customer counts, reviews, or performance claims on these pages.
 
 ## GitHub Pages
 
-`.github/workflows/pages.yml` checks the site, then on `main` uploads the `site` directory and deploys it with GitHub Actions.
+`.github/workflows/pages.yml` checks the site on pull requests, then on `main` uploads the `site/` directory and deploys it with GitHub Actions.
 
-After this workflow is on `main`, set the repository Pages source to **GitHub Actions** under Settings, Pages. That setting does not change repository visibility.
+In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. Publishing starts after that setting is saved and the workflow runs on `main`.
 
 Expected site URL:
 
 `https://trippythrifter.github.io/COMPCHECK-homepage/`
 
-No secrets or environment variables are required.
+`site/404.html` uses root-absolute links under `/COMPCHECK-homepage/` so assets still load when GitHub Pages serves the file for a missing path.
 
 ## Check
 
 ```bash
-python3 tools/check_site.py
+python3 scripts/check_site.py
 ```
 
-The script checks HTML structure, local links, required pages, and the workflow file.
+The same check runs in `.github/workflows/check.yml` and in the Pages workflow.
+
+## Fonts
+
+Newsreader and Source Sans 3 are included under the SIL Open Font License. License texts are in `site/assets/fonts/`.
